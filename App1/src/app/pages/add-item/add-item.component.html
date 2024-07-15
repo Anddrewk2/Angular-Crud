@@ -1,0 +1,32 @@
+<form class="item-form" (ngSubmit)="onSubmit()" *ngIf="newItem" #itemForm="ngForm">
+    <div class="form-group">
+      <label for="name">Name:</label>
+      <input type="text" id="name" required [(ngModel)]="newItem.name" name="name" class="form-control">
+    </div>
+    <div class="form-group">
+      <label for="position">Position:</label>
+      <select id="position" required [(ngModel)]="newItem.position" name="position" class="form-control">
+        <option *ngFor="let pos of positions">{{ pos }}</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="office">Office:</label>
+      <input type="text" id="office" required [(ngModel)]="newItem.office" name="office" class="form-control">
+    </div>
+    <div class="form-group">
+      <label for="age">Age:</label>
+      <input type="number" id="age" required [(ngModel)]="newItem.age" name="age" class="form-control">
+    </div>
+    <div class="form-group">
+      <label for="dateStart">Start Date:</label>
+      <input type="date" id="dateStart" required [(ngModel)]="newItem.dateStart" name="dateStart" class="form-control">
+    </div>
+    <div class="form-group">
+      <label for="salary">Salary:</label>
+      <input type="number" id="salary" required [(ngModel)]="newItem.salary" name="salary" class="form-control">
+    </div>
+    <button type="submit" class="btn btn-primary">Add Employee</button>
+    <button type="button" class="btn btn-secondary" (click)="onCancel()">Cancel</button>
+
+  </form>
+  

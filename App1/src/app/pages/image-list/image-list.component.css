@@ -1,0 +1,42 @@
+/* image-list.component.css */
+.image-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* Khoảng cách giữa các ảnh */
+  }
+  
+  .image-item {
+    flex: 0 0 calc(33.333% - 20px); /* Cho phép 3 ảnh trên mỗi hàng */
+    max-width: calc(33.333% - 20px);
+    position: relative; /* Để các nút button có thể được căn chỉnh */
+  }
+  
+  .image-wrapper {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .image-content {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  
+  .button-container {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    right: 10px;
+    text-align: center;
+  }
+  
+  .modal-3by5 .modal-dialog {
+    max-width: 60%; /* Chiếm 3/5 kích thước màn hình */
+    max-height: 60%; /* Chiếm 3/5 kích thước màn hình */
+  }
+  
+  .modal-image {
+    width: 100%;
+    height: auto;
+  }
+  

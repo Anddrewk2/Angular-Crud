@@ -1,0 +1,27 @@
+<!-- image-list.component.html -->
+<div class="image-container">
+    <div *ngFor="let image of images" class="image-item">
+      <div class="image-wrapper">
+        <img [src]="image.url" [alt]="image.name" class="image-content" (click)="openImageModal(image)">
+        <div class="button-container">
+          <button class="btn btn-success me-2" (click)="onPass(image)">Pass</button>
+          <button class="btn btn-danger" (click)="onFail(image)">Fail</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Image Modal -->
+  <div class="modal fade" [class.show]="selectedImage" [style.display]="selectedImage ? 'block' : 'none'" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-dialog-centered modal-3by5">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="btn-close" (click)="closeImageModal()"></button>
+        </div>
+        <div class="modal-body">
+          <img [src]="selectedImage?.url" [alt]="selectedImage?.name" class="modal-image">
+        </div>
+      </div>
+    </div>
+  </div>
+  

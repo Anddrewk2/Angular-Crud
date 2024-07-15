@@ -1,0 +1,45 @@
+<div class="card-body">
+    <div class="table-responsive">
+      <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Position</th>
+            <th>Office</th>
+            <th>Age</th>
+            <th>Start date</th>
+            <th>Salary</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tfoot>
+          <tr>
+            <th>Name</th>
+            <th>Position</th>
+            <th>Office</th>
+            <th>Age</th>
+            <th>Start date</th>
+            <th>Salary</th>
+            <th>Actions</th>
+          </tr>
+        </tfoot>
+        <tbody>
+          <ng-container *ngIf="filteredItems$ | async as items">
+            <tr *ngFor="let item of items | paginate: { itemsPerPage: pageSize, currentPage: page }">
+              <td>{{ item.name }}</td>
+              <td [ngStyle]="{'color': item.position === 'Developer' ? '#721c24' : (item.position === 'Manager' ? '#155724' : (item.position === 'Tester' ? '#ffcc00' : (item.position === 'Intern' ? '#856404' :  (item.position === 'Designer' ? '#0c5460' : ''))))}">{{ item.position }}</td>
+              <td>{{ item.office }}</td>
+              <td>{{ item.age }}</td>
+              <td>{{ item.dateStart }}</td>
+              <td>{{ item.salary }}</td>
+              <td>
+                <button class="btn btn-danger custom-margin" (click)="deleteItem(item.id)">Delete</button>
+                <a class="btn btn-primary custom-margin" [routerLink]="['/admin/update-item', item.id]">Update</a>
+              </td>
+            </tr>
+          </ng-container>
+        </tbody>
+      </table>
+      <pagination-controls (pageChange)="page = $event"></pagination-controls>
+    </div>
+  </div>

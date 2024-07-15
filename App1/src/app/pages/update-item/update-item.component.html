@@ -1,0 +1,44 @@
+<form (ngSubmit)="onSubmit()" *ngIf="item" #itemForm="ngForm" class="needs-validation" novalidate>
+  <div class="form-group">
+    <label for="name">Name:</label>
+    <input type="text" id="name" class="form-control" required [(ngModel)]="item.name" name="name">
+    <div class="invalid-feedback">
+      Name is required.
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="position">Position:</label>
+    <select id="position" required [(ngModel)]="item.position" name="position" class="form-control">
+      <option *ngFor="let pos of positions">{{ pos }}</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="office">Office:</label>
+    <input type="text" id="office" class="form-control" required [(ngModel)]="item.office" name="office">
+    <div class="invalid-feedback">
+      Office is required.
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="age">Age:</label>
+    <input type="number" id="age" class="form-control" required [(ngModel)]="item.age" name="age">
+    <div class="invalid-feedback">
+      Age is required.
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="dateStart">Start Date:</label>
+    <input type="date" id="dateStart" class="form-control" required [(ngModel)]="item.dateStart" name="dateStart">
+    <div class="invalid-feedback">
+      Start Date is required.
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="salary">Salary:</label>
+    <input type="number" id="salary" class="form-control" required [(ngModel)]="item.salary" name="salary">
+    <div class="invalid-feedback">
+      Salary is required.
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary">Update Item</button>
+</form>
